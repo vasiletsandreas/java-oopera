@@ -1,4 +1,19 @@
-package PACKAGE_NAME;
+public class MusicalShow extends Show {
+    protected String musicAuthor;
+    protected String librettoText;
 
-public class MusicalShow {
+    public MusicalShow(String title, int duration, Director director,
+                       String musicAuthor, String librettoText) {
+        super(title, duration, director);
+        this.musicAuthor = musicAuthor;
+        this.librettoText = librettoText;
+    }
+
+    public void printLibretto() {
+        System.out.println("Либретто спектакля \"" + title + "\":");
+        System.out.println(librettoText);
+    }
+
+    public String getMusicAuthor() { return musicAuthor; }
+    public String getLibrettoText() { return librettoText; }
 }
