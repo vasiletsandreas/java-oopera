@@ -11,9 +11,8 @@ public class Theatre {
         Director director2 = new Director("Ольга", "Николаева", Gender.FEMALE, 12);
 
 
-        String musicAuthor = "Петр Чайковский";
-        String choreographer = "Мариус Петипа";
-
+        Person musicAuthor = new Person("Петр", "Чайковский", Gender.MALE);
+        Person choreographer = new Person("Мариус", "Петипа", Gender.MALE);
 
         Show regularShow = new Show("Обычный спектакль", 120, director1);
         Opera opera = new Opera("Евгений Онегин", 180, director2,
@@ -44,22 +43,14 @@ public class Theatre {
 
 
         System.out.println(" ЗАМЕНА АКТЕРА В БАЛЕТЕ ");
-        boolean replaced = ballet.replaceActor(actor3, actor2);
-        if (replaced) {
-            System.out.println("Актер успешно заменен!");
-        } else {
-            System.out.println("Актер для замены не найден!");
-        }
+        Actor newActor = new Actor("Екатерина", "Новикова", Gender.FEMALE, 168.0);
+        boolean replaced = ballet.replaceActor(newActor, "Иванов");
         ballet.printActors();
         System.out.println();
 
         // Пытаемся заменить несуществующего актера
         System.out.println(" ПОПЫТКА ЗАМЕНИТЬ НЕСУЩЕСТВУЮЩЕГО АКТЕРА ");
-        Actor nonExistentActor = new Actor("Несуществующий", "Актер", Gender.MALE, 180.0);
-        boolean notReplaced = opera.replaceActor(nonExistentActor, actor1);
-        if (!notReplaced) {
-            System.out.println("Несуществующий актер не был заменен (ожидаемое поведение)");
-        }
+        boolean notReplaced = opera.replaceActor(actor1, "Несуществующий");
         System.out.println();
 
         // Выводим информацию о режиссерах
